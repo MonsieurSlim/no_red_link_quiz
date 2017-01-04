@@ -1,0 +1,22 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+.DS_Store
+.rvmrc
+# Ignore bundler config
+/coverage
+.powrc
+/.bundle
+/.DS_Store
+/public/system
+/public/uploads
+# Ignore all logfiles and tempfiles.
+/tmp
+**/log/*.log
+.idea/
+# Ignore application configuration
+.DS_Store
