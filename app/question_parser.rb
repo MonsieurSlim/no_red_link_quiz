@@ -1,8 +1,5 @@
 class QuestionParser
   require 'csv'
-  # def questions(input)
-  #
-  # end
 
   def questions
     q =  CSV.read("./public/questions.csv")
@@ -17,12 +14,23 @@ class QuestionParser
   def fetch_quiz(no_of_questions)
     return "Number must be less that zero" unless no_of_questions > 0
     array = []
-    questions.each do |k, v|
-      v.each do |value|
-        array << value[4]
+    i = no_of_questions/questions.size
+    i.times do
+      group_by_standards(questions).each do |k, v|
+        v.each do |key, value|
+          array << value.first[4]
+        end
       end
     end
     array.take(no_of_questions).join(",")
+  end
+
+  def group_by_standards questions
+    h = {}
+    questions.each do |k, v|
+      h[k] = v.group_by {|a| a[2]}
+    end
+    h
   end
 
 
